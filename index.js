@@ -6,11 +6,13 @@ const cron = require('node-cron');
 
 cron.schedule(`*/${timers.master_balance} * * * * *`, () => {
     const masterBalance = mbService.get();
-    console.log(`CURRENT BALANCE - ETH:${masterBalance.eth} AND USD:${masterBalance.usd}`);
+    // I have added a fixed of 2 decimals so it easier to read, but it means some small transactions will show as 0.00
+    console.log(`CURRENT BALANCE 💸 ETH:${masterBalance.eth.toFixed(2)} AND USD:${masterBalance.usd.toFixed(2)}`);
 });
 
 cron.schedule(`*/${timers.bid_refresh} * * * * *`, async () => {
     const best_bids = await requester.getBestBids();
-    let orders = ordersService.placeBids(best_bids.best_ask);
-    console.log(orders);
+    let asks = ordersService.placeBids(best_bids.best_ask);
+    let bids = ordersService.placeBids(best_bids.best_bid);
+    ordersService.executeOrders(best_bids, asks, bids);
 });
