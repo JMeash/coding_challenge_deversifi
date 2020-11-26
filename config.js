@@ -7,12 +7,12 @@ const config = {
         precision: process.env.DIVERSIFI_PRECISION || 'R0',
     },
     starting_balance: {
-        eth: new BigNumber(10),
-        usd: new BigNumber(2000),
+        eth: process.env.STARTING_BALANCE_ETH || new BigNumber(10),
+        usd: process.env.STARTING_BALANCE_USD || new BigNumber(2000),
     },
     timers: {
-        bid_refresh: 5,
-        master_balance: 30,
+        bid_refresh: process.env.TIMERS_BID || 5,
+        master_balance: process.env.TIMERS_BALANCE || 30,
     },
     orders: {
         ordersToBePlaced: 5,
