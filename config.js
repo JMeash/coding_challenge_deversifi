@@ -11,6 +11,9 @@ const config = {
     timers: {
         bid_refresh: 5,
         master_balance: 30,
+    },
+    orders: {
+        ordersToBePlaced: 5,
     }
 }
 
