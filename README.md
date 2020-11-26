@@ -15,7 +15,7 @@ Make sure that the dependencies are installed (`npm i`). Then type `npm start`.
 ## Test it
 
 You can run the battery of integration and unit tests running `npm test`. If you want to run either of them, you can use `npm test integration` 
-for the integration tests and `npm test unit` for the unit tests.
+for the integration tests and `npm test unit` for the unit tests. If running the integration test, allow 6 seconds for the integration test to make sure the crons are working.
 
 ## Final Considerations
 
@@ -23,6 +23,7 @@ for the integration tests and `npm test unit` for the unit tests.
 * The cron runs every 5 and 30 seconds on the clock (i.e. when the clock is at :30 it will run both).
 * The code of `orders` could be easily adapted to add more different coins.
 * Because I am not reserving any amount and fullfilling bids and asks to the maximum if possible, the bot will have fully changed the amount of ETH or USD after most of each iteration of trades.
+* I have used BigNumber to ensure that I had the needed precision and correct arithmetic. 
 
 ## Author
 
