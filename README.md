@@ -11,6 +11,7 @@ This is a small marking bot using Node.js
 
 * Ideally `orders.js` is a standalone service that has a queue, where it gets feed the bids and it decides on its own, right now I am doing a call in the bot to execute the appropriate sells and bids, so the logic is simplified.
 * The cron runs every 5 and 30 seconds on the clock (i.e. when the clock is at :30 it will run both).
+* I am using `Math.random()`, but it is not cryptographically secure.
 
 ## Author
 
