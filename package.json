@@ -1,10 +1,13 @@
 {
   "name": "deversify",
   "version": "1.0.0",
-  "description": "",
+  "description": "Trader for deversify",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest --verbose",
+    "test integration": "jest -t 'integration'",
+    "test unit": "jest -t 'unit'"
   },
   "dependencies": {
     "axios": "^0.21.0",
